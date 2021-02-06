@@ -7,7 +7,6 @@ HINC = -I../ik
 LINC = -L../ik
 
 #OBJECTS = \
-#	nclassifier.o\
 
 APP = nclassifier
 SRC = nclassifier.c
