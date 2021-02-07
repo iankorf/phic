@@ -9,16 +9,16 @@ PHIC is designed to solve a simple recurring problem in bioinformatics.
 Sequencing read depth is often used to infer _something_ from
 copy-number variants to R-loops, to ChIP-seq peaks. PHIC reads the
 sequence of read depths and classifies these into any number of numeric
-classes. For example, most of the genome may be 1x coverage, but some
-places are 5x, and others are 50x. PHIC can classify coverage into 3
-classes of 1, 5, and 50.
+classes. For example, most of the genome may be 0-1x coverage, but some
+places are 4-6x, and others are 50 or more. PHIC can classify coverage
+into 3 classes of 1, 5, and 50.
 
-PHIC assumes input data are integer values within a limited range. Read
-depth files are sometimes normalized into floating point values, and
-some values may be out of range. For this reason, there is a python
-wrapper `phic.py` that performs a variety of pre- and post-processing
-activities on the raw data. It is generally better to use `phic.py` than
-`phic` itself.
+PHIC assumes input data are integer values within a limited range
+(0-255). Read depth files are sometimes normalized into floating point
+values, and some values may be out of range. For this reason, there is a
+python wrapper `phic.py` that performs a variety of pre- and
+post-processing activities on the raw data. It is generally better to
+use `phic.py` than `phic` itself.
 
 ## Build Instructions ##
 
@@ -28,11 +28,13 @@ In order to compile `phic` you must first build the `libik.a` library.
 	cd ik
 	make
 
-Place the `ik` directory at the same level as the `phic` directory. This
-is necessary because the phic `Makefile` references the parent directory
-to get to ik.
+Place the `ik` directory at the same level as the `phic` directory. That
+is, there should be a parent directory containing both the `ik` and
+`phic` directories. This is necessary because the phic `Makefile`
+references the parent directory to get to `ik`.
 
-Now you can go to the `phic` directory and build that too.
+After you've build `libik.a` you can go to the `phic` directory and
+build the `phic` executable.
 
 	git clone https://github.com/iankorf/phic.git
 	cd phic
@@ -62,5 +64,6 @@ quite sum to 1.0.
 
 Unlike most HMMs which have tables of discrete emission probabilities,
 the emissions in PHIC are drawn from a Poisson distribution. The
-emissions are the number of expected counts.
+emissions are the number of expected counts. All of the calculations are
+done in log space, so long sequences of numbers should be fine.
 
