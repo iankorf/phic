@@ -8,9 +8,9 @@ LINC = -L../ik
 
 #OBJECTS = \
 
-APP = nclassifier
-SRC = nclassifier.c
-OBJ = nclassifier.o
+APP = phic
+SRC = phic.c
+OBJ = phic.o
 
 ###########
 # Targets #
