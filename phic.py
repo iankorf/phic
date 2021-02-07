@@ -13,6 +13,8 @@ if __name__ == '__main__':
 		description='Poission-based HMM Integer Classifier')
 	parser.add_argument('--file', required=True, type=str,
 		metavar='<file>', help='text file of values')
+	parser.add_argument('--background', required=False, type=str,
+		metavar='<file>', help='text file of background values')
 	parser.add_argument('--classes', required=True, type=int, nargs='*',
 		metavar='<int>', help='low expectation [%(default)i]')
 	parser.add_argument('--x', required=False, type=int, default=5,
@@ -46,6 +48,8 @@ if __name__ == '__main__':
 	elif arg.bed:
 		chr, off = arg.bed.split(',')
 		off = int(off)
+	
+	if arg.background: raise Exception('background not implemented yet')
 	
 	# collect data and threshold/scale as necessary
 	data = []
