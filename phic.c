@@ -42,7 +42,7 @@ usage: nclassifier <file> <x> <c1> <c2> [... <cn>]\n\
   c1   = count class 1  [int]\n\
   c2   = count class 2  [int]\n\
   cn   = count class n  [int]\n\
-example: nclassifier values.txt 10 1 5 15\n\
+example: phic values.txt 10 1 5 15\n\
 ";
 
 int main (int argc, char ** argv) {
