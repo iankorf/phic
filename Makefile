@@ -6,6 +6,8 @@ LIBS = -lm -lik
 HINC = -I../ik
 LINC = -L../ik
 
+CFLAGS = -O2 -Wall -Werror
+
 #OBJECTS = \
 
 APP = phic
@@ -30,7 +32,7 @@ clean:
 #################
 
 gcc:
-	make $(APP) CC="gcc" CFLAGS="-O2 -Wall"
+	make $(APP)
 
 
 ###################
