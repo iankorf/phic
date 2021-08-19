@@ -1,43 +1,23 @@
-############################
-# Makefile for nclassifier #
-############################
+# Makefile for phic
 
-LIBS = -lm -lik
-HINC = -I../ik
-LINC = -L../ik
+LIBS = -lm -lgenomikon
+HINC = -I../genomikon
+LINC = -L../genomikon
 
 CFLAGS = -O2 -Wall -Werror
-
-#OBJECTS = \
 
 APP = phic
 SRC = phic.c
 OBJ = phic.o
 
-###########
-# Targets #
-###########
-
 default:
-	make gcc
+	make $(APP)
 
 $(APP): $(OBJ) $(OBJECTS)
 	$(CC) -o $(APP) $(CFLAGS) $(LINC) $(OBJ) $(OBJECTS) $(LIBS)
 
 clean:
 	rm -f *.o $(APP)
-
-#################
-# Architectures #
-#################
-
-gcc:
-	make $(APP)
-
-
-###################
-# Inference Rules #
-###################
 
 %.o: %.c
 	$(CC) $(CFLAGS) $(HINC) -c -o $@ $<
