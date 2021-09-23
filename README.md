@@ -22,18 +22,18 @@ use `phic.py` than `phic` itself.
 
 ## Build Instructions ##
 
-In order to compile `phic` you must first build the `libik.a` library.
+In order to compile `phic` you must first build the `genomikon.a` library.
 
-	git clone https://github.com/iankorf/ik.git
+	git clone https://github.com/KorfLab/genomikon.git
 	cd ik
 	make
 
-Place the `ik` directory at the same level as the `phic` directory. That
-is, there should be a parent directory containing both the `ik` and
+Place the `genomikon` directory at the same level as the `phic` directory. That
+is, there should be a parent directory containing both the `genomikon` and
 `phic` directories. This is necessary because the phic `Makefile`
-references the parent directory to get to `ik`.
+references the parent directory to get to `genomikon`.
 
-After you've build `libik.a` you can go to the `phic` directory and
+After you've build `genomikon.a` you can go to the `phic` directory and
 build the `phic` executable.
 
 	git clone https://github.com/iankorf/phic.git
